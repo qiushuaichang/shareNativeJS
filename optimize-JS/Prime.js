@@ -1,4 +1,5 @@
 // 判断一个数是不是质数
+// /*
 function isPrime(n) {
     if (n <= 3) return true; //小于3的数都是质数
 
@@ -11,12 +12,42 @@ function isPrime(n) {
         }
     }
 }
+// */
+
+//利用hash，避免重复计算
+var isPrime2 = (function() {
+    var hash = {};
+    return function(n) {
+        if (n <= 3) return true;
+
+        else if (n % 2 == 0) return false;
+
+        else if (hash[n] !== undefined) return hash[n];
+
+        else {
+            for (var i = 3; i <= Math.sqrt(n); i += 2) {
+                if (n % i == 0) {
+                    hash[n] = false;
+                    return false
+                }
+            }
+            hash[n] = true;
+            return true
+        }
+    }
+})()
 
 //测试百万级数据搜索查询速度
 var arr = [];
-for (var i = 0; i < 1000000; i++) {
-    arr.push(parseInt(Math.random() * 1000000))
+for (var i = 0; i < 10000000; i++) {
+    arr.push(parseInt(Math.random() * 10000 + 10000))
 }
+
+console.time("isPrime2")
+for (var i = 0; i < arr.length; i++) {
+    isPrime2(arr[i])
+}
+console.timeEnd("isPrime2")
 
 console.time("isPrime")
 for (var i = 0; i < arr.length; i++) {
