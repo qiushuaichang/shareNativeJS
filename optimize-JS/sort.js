@@ -11,8 +11,6 @@ for (var i = 0; i < arr_len; i++) {
     arr[i] = arr[currentRandom];
     arr[currentRandom] = current;
 }
-var arr1 = arr;
-var arr2 = arr;
 
 // function defaultSort(arr) {
 //     return arr.sort()
