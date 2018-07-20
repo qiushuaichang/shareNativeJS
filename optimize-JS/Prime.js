@@ -43,14 +43,14 @@ for (var i = 0; i < 10000000; i++) {
     arr.push(parseInt(Math.random() * 10000 + 10000))
 }
 
-console.time("isPrime2")
+// console.time("isPrime2")
 for (var i = 0; i < arr.length; i++) {
     isPrime2(arr[i])
 }
-console.timeEnd("isPrime2")
+// console.timeEnd("isPrime2")
 
-console.time("isPrime")
+// console.time("isPrime")
 for (var i = 0; i < arr.length; i++) {
     isPrime(arr[i])
 }
-console.timeEnd("isPrime")
+// console.timeEnd("isPrime")

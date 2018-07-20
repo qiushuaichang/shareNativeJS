@@ -6,8 +6,7 @@ for (var i = 0; i < 1000000; i++) {
     arr.push(parseInt(Math.random() * 1000))
 }
 
-var arr2 = arr
-    //利用两层循环
+//利用两层循环
 function repeat1(arr) {
     for (var i = 0, result = []; i < arr.length; i++) {
         if (result.indexOf(arr[i]) == -1) //indexOf方法其实就是封装了循环，效率依旧低
