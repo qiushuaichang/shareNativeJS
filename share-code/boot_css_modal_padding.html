@@ -13,6 +13,64 @@
     <p>
         bootstrap在我们的工作中，会给我们的样式带来多种显示，也能够便于快速开发。 但是有时候我们点击弹窗，弹窗特别是大的时候，弹窗显示导致页面内容整天向左移动 。 这时只需要给 body{ padding-right: 0 !important ;}就可以了。
     </p>
+
+    <h4>div 引入iframe标签时会出现滚动条</h4>
+    <p>
+        iframe标签中添加属性scrolling: "no"; \n
+        div标签加 cssoverflow: "hidden";
+    </p>
+
+    <h4>div 引入iframe标签时会出现滚动条</h4>
+    <p>
+        iframe标签中添加属性scrolling: "no"; \n
+        div标签加 cssoverflow: "hidden";
+    </p>
+
+    <h4>获取自适应容器的高</h4>
+    <p>
+        如果高度是自适应的，此时想获取div的高度，正常获取是""或undefined,那么用document.getElementById("div").offsetHeight 获取容器的高
+    </p>
+
+    <h4>js -- map() 只能遍历数组</h4>
+    <p>
+        <pre>
+    	var res = arr.map((item,index) => {
+    		return item + index
+        })
+        </pre>	
+    </p>
+
+    <h4>js -- for...in 遍历对象</h4>
+    <p>
+        <pre>
+    	var obj = {name: "lili",old: "21"}
+    	for(var key in obj) {
+    		console.log(key)	//"name";"old"
+    		console.log(obj[key])	//"lili";"21"
+    	}
+        </pre>	
+    </p>
+
+    <h4>前后台联调时接口不发送请求</h4>
+    <p>
+        对于ajax请求，如果url不对的话，很可能出现接口直接不发送请求。
+    </p>
+
+    <h4>前后台联调时接口不发送请求</h4>
+    <p>
+        对于ajax请求，如果url不对的话，很可能出现接口直接不发送请求。
+    </p>
+
+    <h4>td点击事件+固定表头影响页面样式</h4>
+    <p>
+        自己做的表头，在有多列的表格中，选中多个td然后向右拉动，表格内容向右滑动，鼠标抬起的时候，会引起页面乱，这时候很有可能就是给td添加点击事件的原因，此时把td的事件给tr就行了
+    </p>
+
+    <h4>两个方法同时监听同一个对象</h4>
+    <p>
+        这是稍微偏浏览器底层的，两个方法有可能会同时监听到这一个对象，然后“资源竞争”，影响到其他的方面或者整体的样式。这样可以用“锁”去解决。原理就是执行一个方法的时候，就false另一个方法(进行判断，让这个方法不执行)
+    </p>
+
 </body>
 
 </html>
