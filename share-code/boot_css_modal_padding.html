@@ -6,70 +6,134 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style type="text/css">
+        body{
+            background: #f4f4f4;
+        }
+        .container{
+            padding: 10px 10%;
+            background: #f6f6f6;
+        }
+        .work-log>p{
+            padding: 10px;
+            background: #d1d1d1;
+        }
+        .work-log>p>pre{            
+            background: #d1d1d1;
+        }
+        .flex-box pre{
+            color: #1497e4
+        }
+        .flex-box pre span{
+            color: #999;
+        }
+    </style>
 </head>
 
 <body>
-    <h4>bootstrap 弹出框滚动条影响窗口</h4>
-    <p>
-        bootstrap在我们的工作中，会给我们的样式带来多种显示，也能够便于快速开发。 但是有时候我们点击弹窗，弹窗特别是大的时候，弹窗显示导致页面内容整天向左移动 。 这时只需要给 body{ padding-right: 0 !important ;}就可以了。
-    </p>
+    <div class="container">
+        <div class="work-log">
+            <h4>bootstrap 弹出框滚动条影响窗口</h4>
+            <p>
+                bootstrap在我们的工作中，会给我们的样式带来多种显示，也能够便于快速开发。 但是有时候我们点击弹窗，弹窗特别是大的时候，弹窗显示导致页面内容整天向左移动 。 这时只需要给 body{ padding-right: 0 !important ;}就可以了。
+            </p>
 
-    <h4>div 引入iframe标签时会出现滚动条</h4>
-    <p>
-        iframe标签中添加属性scrolling: "no"; \n
-        div标签加 cssoverflow: "hidden";
-    </p>
+            <h4>div 引入iframe标签时会出现滚动条</h4>
+            <p>
+                iframe标签中添加属性scrolling: "no"; \n
+                div标签加 cssoverflow: "hidden";
+            </p>
 
-    <h4>div 引入iframe标签时会出现滚动条</h4>
-    <p>
-        iframe标签中添加属性scrolling: "no"; \n
-        div标签加 cssoverflow: "hidden";
-    </p>
+            <h4>div 引入iframe标签时会出现滚动条</h4>
+            <p>
+                iframe标签中添加属性scrolling: "no"; \n
+                div标签加 cssoverflow: "hidden";
+            </p>
 
-    <h4>获取自适应容器的高</h4>
-    <p>
-        如果高度是自适应的，此时想获取div的高度，正常获取是""或undefined,那么用document.getElementById("div").offsetHeight 获取容器的高
-    </p>
+            <h4>获取自适应容器的高</h4>
+            <p>
+                如果高度是自适应的，此时想获取div的高度，正常获取是""或undefined,那么用document.getElementById("div").offsetHeight 获取容器的高
+            </p>
 
-    <h4>js -- map() 只能遍历数组</h4>
-    <p>
+            <h4>js -- map() 只能遍历数组</h4>
+            <pre>
+            var res = arr.map((item,index) => {
+                return item + index
+            })
+            </pre>  
+
+            <h4>js -- for...in 遍历对象</h4>
+            <pre>
+            var obj = {name: "lili",old: "21"}
+            for(var key in obj) {
+                console.log(key)    //"name";"old"
+                console.log(obj[key])   //"lili";"21"
+            }
+            </pre>  
+
+            <h4>前后台联调时接口不发送请求</h4>
+            <p>
+                对于ajax请求，如果url不对的话，很可能出现接口直接不发送请求。
+            </p>
+
+            <h4>前后台联调时接口不发送请求</h4>
+            <p>
+                对于ajax请求，如果url不对的话，很可能出现接口直接不发送请求。
+            </p>
+
+            <h4>td点击事件+固定表头影响页面样式</h4>
+            <p>
+                自己做的表头，在有多列的表格中，选中多个td然后向右拉动，表格内容向右滑动，鼠标抬起的时候，会引起页面乱，这时候很有可能就是给td添加点击事件的原因，此时把td的事件给tr就行了
+            </p>
+
+            <h4>两个方法同时监听同一个对象</h4>
+            <p>
+                这是稍微偏浏览器底层的，两个方法有可能会同时监听到这一个对象，然后“资源竞争”，影响到其他的方面或者整体的样式。这样可以用“锁”去解决。原理就是执行一个方法的时候，就false另一个方法(进行判断，让这个方法不执行)
+            </p>
+        </div>
+    </div>
+
+    <div class="flex-box">
         <pre>
-    	var res = arr.map((item,index) => {
-    		return item + index
-        })
-        </pre>	
-    </p>
+            .box{
+                flex-direction: row;    <span>/*决定子元素排列方向*/</span>
+                flex-wrap: nowrap;      <span>/*决定子元素排不下时是否换行*/</span>
+                <span>/*
+                justify-content : 子元素样式
+                  flex-start：左对齐
+        　　　　　　flex-end：右对齐
+        　　　　　　center：居中对齐
+        　　　　　　space-between：两端对齐
+        　　　　　　space-around：沿轴线均匀分布
+                */</span>
+                justify-content: space-around;
+                <span>/*
+                align-items : 子元素样式(横主轴为例)
+                  flex-start：顶端对齐
+            　　　　flex-end：底部对齐
+            　　　　center：竖直方向上居中对齐
+            　　　　baseline：子元素第一行文字的底部对齐
+            　　　　stretch：当子元素未设置高度时，子元素将和父容器等高对齐
+                */</span>
+                align-items: flex-start;
+                align-content: flex-start;  <span>/*设置这个属性，align-items就不管用了*/</span>
+            }
+            .box>div{
+                height: 100px;
+                margin: 10px 20px;
+                order: 0;       <span>/*子元素的排列顺序，越小排的越靠前*/</span>
+                flex-grow: 1;       <span>/*父元素空间充足时，子元素扩大的比例*/</span>
+                flex-shrink: 1;     <span>/*父元素空间不足时，子元素缩小的比例*/</span>
+                flex-basis: 10px;   <span>/*决定子元素在子轴上占据的空间*/</span>
+                align-self: flex-start;     <span>/*同align-items，可覆盖align-items属性*/</span>
+            }
 
-    <h4>js -- for...in 遍历对象</h4>
-    <p>
-        <pre>
-    	var obj = {name: "lili",old: "21"}
-    	for(var key in obj) {
-    		console.log(key)	//"name";"old"
-    		console.log(obj[key])	//"lili";"21"
-    	}
-        </pre>	
-    </p>
+            <p>
+                <a href="https://www.cnblogs.com/nuannuan7362/p/5823381.html">详细图文可以参考此链接地址</a>
+            </p>
+        </pre>
 
-    <h4>前后台联调时接口不发送请求</h4>
-    <p>
-        对于ajax请求，如果url不对的话，很可能出现接口直接不发送请求。
-    </p>
-
-    <h4>前后台联调时接口不发送请求</h4>
-    <p>
-        对于ajax请求，如果url不对的话，很可能出现接口直接不发送请求。
-    </p>
-
-    <h4>td点击事件+固定表头影响页面样式</h4>
-    <p>
-        自己做的表头，在有多列的表格中，选中多个td然后向右拉动，表格内容向右滑动，鼠标抬起的时候，会引起页面乱，这时候很有可能就是给td添加点击事件的原因，此时把td的事件给tr就行了
-    </p>
-
-    <h4>两个方法同时监听同一个对象</h4>
-    <p>
-        这是稍微偏浏览器底层的，两个方法有可能会同时监听到这一个对象，然后“资源竞争”，影响到其他的方面或者整体的样式。这样可以用“锁”去解决。原理就是执行一个方法的时候，就false另一个方法(进行判断，让这个方法不执行)
-    </p>
+    </div>
 
 </body>
 
