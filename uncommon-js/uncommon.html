@@ -30,5 +30,12 @@
         str.substr()        str.substr(-3,3)    //'ld!'     -3代表str.length+(-3);  3代表向后截取几位
                             str.substr(8,3)     //'ppy'     
     </pre>
+
+    <pre>
+        判断是否是数组
+        arr = [1,2,3]
+        alert(arr instanceof Array)     //true
+        alert(arr.constructor === Array)    //true       同样的方法可以判断是否为对象，而且此方法更准确
+    </pre>
 </body>
 </html>

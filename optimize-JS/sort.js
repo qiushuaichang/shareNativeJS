@@ -30,8 +30,8 @@ function quickSort(arr) {
             //写成三元表达式
             arr[i] > c ? right.push(arr[i]) : left.push(arr[i])
         }
-        //递归的方法继续执行到最后
-        return quickSort(left).concat(c, quickSort(right))
+        return quickSort(left).concat(c, quickSort(right))  //这个和下边的写法都可以
+        // return [].concat(quickSort(left),[c],quickSort(right))
     }
 }
 arr = quickSort(arr) //必须接住执行后的数组
