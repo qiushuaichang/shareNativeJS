@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        var arr = ['dog','cat','hen']
+        arr.toString()          // 'dog,cat,hen'
+        arr.concat('mouse')     // ['dog','cat','hen','mouse']
+        arr.pop()               // 'hen'
+        arr.shift()             // 'dog'
+        arr.splice(1,2)         // ['cat','hen']
+    </pre>
+
+    <pre>
+        js 中 in 运算符
+        var obj = {a:"1",b:"2"}     "a" in obj      //true,在对象中，in前边的参数"a"代表obj的key
+        var arr = [a,21,"str",33]   2 in arr        //true,在对象中，in前边的参数代表arr的索引号
+                                    21 in  arr      //false
+    </pre>
+
+    <pre>
+        str = 'hello happy world!'
+        str.slice()         str.slice(6)        //'happy world!'  ==>slice(6,str.length-1)  含头不含尾
+        str.substring()     //同上
+        str.substr()        str.substr(-3,3)    //'ld!'     -3代表str.length+(-3);  3代表向后截取几位
+                            str.substr(8,3)     //'ppy'     
+    </pre>
+</body>
+</html>

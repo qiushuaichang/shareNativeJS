@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="referrer" content="no-referrer" />
+	<title></title>
+</head>
+<body>
+    <p>这是用原生js写的api接口，接入Google游戏和广告，利用jsonp解决跨域。</p>
+    <p>跟踪用户操作的js插件[ analytics.js, gtag.js ]</p>
+<script>
+	window.onerror = function(){return true;}
+</script>
+</body>
+</html>
+<script type="text/javascript">
+	(function(){
+    var ar = window.ad_request = {};
+    var ac = window.ad_callback = {};
+    var ad_data;
+    var query_params;
+    var request_url = "http://xxx.com/v1/js_func";
+
+    var default_apps = {
+        Android : {
+            name : "CATS: Crash Arena Turbo Stars",
+            icon : "https://lh3.googleusercontent.com/knEhgov4qnZeegPuvSblM_Q_9VKZOEDenZfCMgS7cN5HGErXO8f97pRw-PqVHLAdEvM=w100",
+        	url : "https://play.google.com/store/apps/details?id=com.zeptolab.cats.google"
+        },
+        iOS : {
+            name : "Spotlite - Sing Freely!",
+            icon : "http://is3.mzstatic.com/image/thumb/Purple127/v4/89/1a/ea/891aeac4-cfb8-b7f0-c697-40b89809c052/source/175x175bb.jpg",
+            url : "https://itunes.apple.com/us/app/id1241217802?mt=8"
+        }
+    };
+
+	ar.getQueryString = function() {
+		var qs = location.search.substr(1);				// 获取url中"?"符后的字串
+			args = {};									// 保存参数数据的对象
+			items = qs.length ? qs.split("&") : [];		// 取得每一个参数项
+			item = null;
+			len = items.length;
+
+		for(var i = 0; i < len; i++) {
+			item = items[i].split("=");
+
+			var name = decodeURIComponent(item[0]);
+				value = decodeURIComponent(item[1]);
+
+			if (name) {
+				args[name] = value
+			}
+		}
+
+		return args;  //返回一个对象 例如：{name:tom,pwd:li,age:20}
+	}
+
+    ar.sendADRequest = function() {
+    	// get url query string
+    	query_params = ar.getQueryString();
+    	if (query_params["redirect"] == undefined) {
+    		// 当没有redirect最好给出默认跳转url?
+    		return;
+    	}
+
+        // construct query string
+        var query_string = new Array();
+        query_string.push("aid=" + (query_params["publisher_id"] != undefined ? query_params["publisher_id"] : 1508));
+        query_string.push("sid=" + (query_params["slot_id"] != undefined ? query_params["slot_id"] : 0));
+        query_string.push("size=" + (query_params["page_size"] != undefined ? query_params["page_size"] : 2));
+        query_string.push("callback=ad_callback.getCallbackData");
+
+        // get platform
+        var platform = getPlatform();
+        query_string.push("os=" + (platform == 'iOS' ? 2 : 1));
+
+        // add script tag
+        ac.addScriptTag(request_url + '?' + query_string.join('&'));
+
+        // show default app by platform
+        // ar.showDefaultAppByPlatform(platform)
+
+        // 定时redirect防止iframe未加载
+        //setTimeout(function(){
+        //	window.location.href = query_params["redirect"];
+        //}, 3000);
+    }
+
+    ar.showDefaultAppByPlatform = function(platform) {
+        var default_app = default_apps[platform];
+
+        var parent_element = document.createElement("div");
+
+        var sub_element_1 = document.createElement("div");
+        sub_element_1.style = "float:left;";
+        var sub_element_1_a = document.createElement("a");
+        var sub_element_1_img = document.createElement("img");
+		sub_element_1_img.src = default_app.icon;
+		sub_element_1_a.href = default_app.url;
+		sub_element_1_a.appendChild(sub_element_1_img);
+		sub_element_1.appendChild(sub_element_1_a);
+		parent_element.appendChild(sub_element_1);
+
+        var sub_element_2 = document.createElement("div");
+        sub_element_2.style = "text-align:center;";
+        var sub_element_2_span = document.createElement("span");
+		sub_element_2_span.innerHTML = default_app.name;
+		sub_element_2.appendChild(sub_element_2_span);
+		parent_element.appendChild(sub_element_2);
+
+        document.body.appendChild(parent_element);
+    }
+
+    ac.getCallbackData = function(data) {
+        var ads = [];
+
+        if (data.apps.length > 0) {
+            var container = document.createElement('div');
+            container.setAttribute('class', 'container');
+            container.style.cssText = 'width:0px; height: 0px; overflow:hidden;';
+            document.body.appendChild(container);
+
+            var app_list = data.apps;
+            for (var i = 0; i < app_list.length; i++) {
+                ads[i] = {};
+                ads[i].title = app_list[i].title;
+                ads[i].package_name = app_list[i].packageName;
+                ads[i].app_link = app_list[i].app_link;
+            }
+            ad_data = ads;
+
+            createObject(container);
+        }
+    }
+
+    ac.addScriptTag = function(src) {
+        var script = document.createElement('script');
+        script.setAttribute("type","text/javascript");
+        script.src = src;
+        script.id = 'ad_data';
+
+        document.body.appendChild(script);
+    }
+
+    function createObject (container) {
+        for (var i = 0; i < ad_data.length; i++) {
+            /*var script_element = document.createElement('script');
+            script_element.setAttribute("type","text/javascript");
+            script_element.src = ad_data[i].app_link;
+
+            var first_script_element = document.getElementsByTagName("script")[0];
+            first_script_element.parentNode.insertBefore(script_element, first_script_element);*/
+
+            var iframe_element = document.createElement('iframe');
+            iframe_element.border = '0';
+            iframe_element.frameborder = '0';
+            iframe_element.width = '0';
+            iframe_element.height = '0';
+            iframe_element.sandbox = 'allow-scripts allow-popups allow-forms allow-pointer-lock';
+            iframe_element.src = ad_data[i].app_link;
+      		container.appendChild(iframe_element);
+        }
+    }
+
+	function getPlatform() {
+	    var ua = navigator.userAgent;
+		if (ua.indexOf('Android') > -1 || ua.indexOf('Adr') > -1) {
+			return 'Android';
+		}
+		if (!!ua.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)) {
+			return 'iOS';
+		}
+	}
+})();
+</script>
+<script>
+    window.ad_request.sendADRequest();
+</script>
