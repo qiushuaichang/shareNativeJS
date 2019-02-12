@@ -327,12 +327,12 @@ SoloRTB.statusChange = function(xmlHttpReq, resConf) {
 // }
 
 SoloRTB.getDivAttrbutes = function () {
-    var attrs = document.getElementById("d").attributes
+    var attrs = document.getElementById("SOLORTB_widget").attributes
     var attrsLen = Object.keys(attrs).length
     SoloRTB.configData = {}
     for(var i in attrs) {
         if(i<attrsLen){
-            obj[attrs[i].name] = attrs[i].value
+            SoloRTB.configData[attrs[i].name] = attrs[i].value
         }
     }
     SoloRTB.configData["box"] = document.getElementById("SOLORTB_widget")
