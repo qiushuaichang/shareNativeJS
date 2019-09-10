@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<VAST version="2.0">
+  <Ad id="extremereach_ad_14842042_2446696_16048837_0">
+    <InLine>
+      <AdSystem version="1.0">Extreme Reach Ad Server</AdSystem>
+      <AdTitle>MUL/UPG/ASMR/INTERNET/16:9/HD :15</AdTitle>
+      <Description>ISCI:AUMU8230H</Description>
+      <Error><![CDATA[https://beacons.extremereach.io/error?cid=105130&creative_id=16048837&line_item=14842042&companion_id=0&er_ts=1553501000&session_id=6mLDG4H2LVa5h5EheUGiik1553500999&er_fp=be9663e7083e0c51&subid1=novpaid&er_ap=0&er_ar=0&subid2=[ERRORCODE]]]></Error>
+      <Impression><![CDATA[https://beacons.extremereach.io/cp-imp?cid=105130&creative_id=16048837&line_item=14842042&companion_id=0&er_ts=1553501000&session_id=6mLDG4H2LVa5h5EheUGiik1553500999&er_fp=be9663e7083e0c51&subid1=novpaid&er_ap=0&er_ar=0&trust=02842d00-cc6c-4fd8-834e-6c68076de903&tsubid3=62091]]></Impression>
+      <Impression><![CDATA[https://bs.serving-sys.com/serving/adServer.bs?cn=display&c=19&mc=imp&pli=27100145&PluID=0&ord=[TIMESTAMP]&rtu=-1&pcp=$$${PLACEMENTID}$$&ebaddid=$$${DOMAIN}$$]]></Impression>
+      <Impression><![CDATA[https://beacon.krxd.net/ad_impression.gif?confid=KPal29Ii&advertiserid=190555&campaignid=943113&siteid=130157&placementid=27100145&adid=56615090]]></Impression>
+      <Creatives>
+        <Creative id="extremereach_creative_16048837" sequence="1" AdID="extremereach_creative_16048837">
+          <Linear>
+            <Duration>00:00:15</Duration>
+            <TrackingEvents>
+              <Tracking event="start"><![CDATA[https://beacons.extremereach.io/duration?cid=105130&creative_id=16048837&line_item=14842042&companion_id=0&er_ts=1553501000&session_id=6mLDG4H2LVa5h5EheUGiik1553500999&er_fp=be9663e7083e0c51&subid1=novpaid&er_ap=0&er_ar=0&percent=0]]></Tracking>
+              <Tracking event="firstQuartile"><![CDATA[https://beacons.extremereach.io/duration?cid=105130&creative_id=16048837&line_item=14842042&companion_id=0&er_ts=1553501000&session_id=6mLDG4H2LVa5h5EheUGiik1553500999&er_fp=be9663e7083e0c51&subid1=novpaid&er_ap=0&er_ar=0&percent=0.25]]></Tracking>
+              <Tracking event="midpoint"><![CDATA[https://beacons.extremereach.io/duration?cid=105130&creative_id=16048837&line_item=14842042&companion_id=0&er_ts=1553501000&session_id=6mLDG4H2LVa5h5EheUGiik1553500999&er_fp=be9663e7083e0c51&subid1=novpaid&er_ap=0&er_ar=0&percent=0.5]]></Tracking>
+              <Tracking event="thirdQuartile"><![CDATA[https://beacons.extremereach.io/duration?cid=105130&creative_id=16048837&line_item=14842042&companion_id=0&er_ts=1553501000&session_id=6mLDG4H2LVa5h5EheUGiik1553500999&er_fp=be9663e7083e0c51&subid1=novpaid&er_ap=0&er_ar=0&percent=0.75]]></Tracking>
+              <Tracking event="complete"><![CDATA[https://beacons.extremereach.io/duration?cid=105130&creative_id=16048837&line_item=14842042&companion_id=0&er_ts=1553501000&session_id=6mLDG4H2LVa5h5EheUGiik1553500999&er_fp=be9663e7083e0c51&subid1=novpaid&er_ap=0&er_ar=0&percent=1]]></Tracking>
+            </TrackingEvents>
+            <VideoClicks>
+              <ClickThrough><![CDATA[https://bs.serving-sys.com/serving/adServer.bs?cn=trd&mc=click&pli=27100145&PluID=0&ord=[TIMESTAMP]&pcp=$$${PLACEMENTID}$$&ebaddid=$$${DOMAIN}$$]]></ClickThrough>
+              <ClickTracking id="vct"><![CDATA[https://beacons.extremereach.io/click?cid=105130&creative_id=16048837&line_item=14842042&companion_id=0&er_ts=1553501000&session_id=6mLDG4H2LVa5h5EheUGiik1553500999&er_fp=be9663e7083e0c51&subid1=novpaid&er_ap=0&er_ar=0]]></ClickTracking>
+            </VideoClicks>
+            <MediaFiles>
+              <MediaFile apiFramework="VPAID" delivery="progressive" width="1920" height="1080" id="video/mp4_2500" bitrate="2560" type="video/mp4"><![CDATA[https://cdn1.extremereach.io/media/34367/66495/02842d00-cc6c-4fd8-834e-6c68076de903/0e4bf3c4-feb0-433d-b5d3-60c4f33cbfc1.mp4?line_item=14842042&cid=105130&.mp4]]></MediaFile>
+              <MediaFile delivery="progressive" width="854" height="480" id="video/mp4_1500" bitrate="1536" type="video/mp4"><![CDATA[https://cdn1.extremereach.io/media/34367/66495/02842d00-cc6c-4fd8-834e-6c68076de903/7543e787-2673-4c6e-a4b5-d6c083cb1f4c.mp4?line_item=14842042&cid=105130&.mp4]]></MediaFile>
+              <MediaFile delivery="progressive" width="640" height="360" id="video/mp4_700" bitrate="716" type="video/mp4"><![CDATA[https://cdn1.extremereach.io/media/34367/66495/02842d00-cc6c-4fd8-834e-6c68076de903/4bbd0139-8a7c-4b0c-9f4e-fdfc5cb518e9.mp4?line_item=14842042&cid=105130&.mp4]]></MediaFile>
+            </MediaFiles>
+          </Linear>
+        </Creative>
+      </Creatives>
+    </InLine>
+  </Ad>
+</VAST>
