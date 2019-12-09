@@ -9,6 +9,7 @@ function isPrime(n) {
         for (var i = 3; i < Math.sqrt(n); i += 2) {
             //Math.sqrt(n)因为如果一个数不是质数，那么它的两个因数一定有一个小于等于sqrt（），因此只要找较小的因子就可以了
             if (n % i == 0) return false
+            else return true
         }
     }
 }
