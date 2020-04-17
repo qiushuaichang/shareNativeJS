@@ -15,6 +15,11 @@ function repeat1(arr) {
     return result
 }
 
+//利用ES6 Set
+function repeat1(arr) {
+    return [...new Set(arr)]
+}
+
 //利用hash----推荐      在百万级以上的数组中，效率是repeat1的80倍以上
 function repeat2(arr) {
     for (var i = 0, result = [], hash = {}; i < arr.length; i++) {
